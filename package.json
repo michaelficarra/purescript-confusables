@@ -1,6 +1,6 @@
 {
   "name": "purescript-confusables",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "an implementation of the Confusable Detection algorithm from Unicode Technical Standard #39",
   "files": ["index.js", "output", "bower.json"],
   "main": "index.js",
