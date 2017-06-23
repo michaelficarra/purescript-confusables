@@ -1,0 +1,21 @@
+{
+  "name": "purescript-confusables",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "output"
+  ],
+  "dependencies": {
+    "purescript-prelude": "^3.0.0",
+    "purescript-console": "^3.0.0",
+    "purescript-strings": "michaelficarra/purescript-strings#codepoints"
+  },
+  "devDependencies": {
+    "purescript-psci-support": "^3.0.0",
+    "purescript-assert": "^3.0.0",
+    "purescript-tuples": "^4.1.0",
+    "purescript-foldable-traversable": "^3.3.1",
+    "purescript-arrays": "^4.1.1"
+  }
+}

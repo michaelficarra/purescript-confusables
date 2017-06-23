@@ -1,0 +1,41 @@
+{
+  "name": "purescript-confusables",
+  "version": "0.1.0",
+  "description": "an implementation of the Confusable Detection algorithm from Unicode Technical Standard #39",
+  "files": ["index.js", "output", "bower.json"],
+  "main": "index.js",
+  "scripts": {
+    "build": "pulp build",
+    "test": "pulp test",
+    "prepublish": "pulp build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/michaelficarra/purescript-confusables.git"
+  },
+  "keywords": [
+    "Unicode",
+    "confusables",
+    "UTS",
+    "UTS39",
+    "homoglyphs",
+    "comparison",
+    "normalisation",
+    "skeleton"
+  ],
+  "author": "Michael Ficarra",
+  "license": "BSD-3-Clause",
+  "bugs": {
+    "url": "https://github.com/michaelficarra/purescript-confusables/issues"
+  },
+  "homepage": "https://github.com/michaelficarra/purescript-confusables#readme",
+  "dependencies": {
+    "unicode-10.0.0": "0.7.4",
+    "unicode-confusables-data": "10.0.0-20170721"
+  },
+  "devDependencies": {
+    "bower": "1.8.0",
+    "pulp": "11.0.0",
+    "purescript": "0.11.5"
+  }
+}
