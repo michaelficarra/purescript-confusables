@@ -3,10 +3,19 @@ module Data.Unicode.Confusables
   , isSingleScriptConfusableWith
   , isMixedScriptConfusableWith
   , isWholeScriptConfusableWith
+  , ConfusableString()
   ) where
 
-import Prelude (map, not, (<<<), (==), (&&), (<>))
+import Prelude (class Eq, map, not, (<<<), (==), (&&), (<>))
 import Data.String.CodePoints (CodePoint(), singleton, joinWith, toCodePointArray)
+import Data.Newtype (class Newtype)
+
+newtype ConfusableString = ConfusableString String
+
+instance confusableStringEq :: Eq ConfusableString where
+  eq (ConfusableString a) (ConfusableString b) = isConfusableWith a b
+
+derive instance newtypeConfusableString :: Newtype ConfusableString _
 
 foreign import normalise :: String -> String
 foreign import getExemplar_ :: String -> String
