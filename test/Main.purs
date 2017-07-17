@@ -1,16 +1,17 @@
 module Test.Main where
 
-import Prelude (Unit, discard, map, not, show, ($), (<>), (<<<))
+import Prelude (Unit, discard, map, not, show, ($), (<>), (<<<), (==), (/=))
 import Control.Monad.Eff (Eff)
 import Control.Monad.Eff.Console (CONSOLE, log)
 import Data.Array (uncons)
 import Data.Foldable (for_)
 import Data.Maybe (Maybe(Nothing, Just))
+import Data.Newtype (wrap)
 import Data.String.CodePoints (codePointToInt, toCodePointArray)
 import Data.Tuple (Tuple(..))
 import Test.Assert (ASSERT, assert')
 
-import Data.Unicode.Confusables (isConfusableWith, isSingleScriptConfusableWith, isMixedScriptConfusableWith, isWholeScriptConfusableWith)
+import Data.Unicode.Confusables (ConfusableString(), isConfusableWith, isSingleScriptConfusableWith, isMixedScriptConfusableWith, isWholeScriptConfusableWith)
 
 pairs :: forall a. Array a -> Array (Tuple a a)
 pairs xs = case uncons xs of
@@ -89,3 +90,9 @@ main = do
     { description: "all latin", string: "paypal" },
     { description: "mixed latin and Cyrillic", string: "pаypаl" }
   ]
+
+  log "ConfusableString newtype wrapper"
+  assert' "the ConfusableString newtype wrapper uses isConfusableWith for (==)" $
+    (wrap "a" :: ConfusableString) == (wrap "a" :: ConfusableString)
+  assert' "the ConfusableString newtype wrapper uses isConfusableWith for (/=)" $
+    (wrap "a" :: ConfusableString) /= (wrap "b" :: ConfusableString)
